@@ -20,7 +20,7 @@ public class RabbitMQConfig {
     private String queueName;
 
     @Value("${app.rabbitmq.routingkey}")
-    private String routingkey;
+    private String routingKey;
 
     @Bean
     public Queue notificationQueue() {
@@ -30,6 +30,14 @@ public class RabbitMQConfig {
     @Bean
     public DirectExchange notificationExchange() {
         return new DirectExchange(exchangeName);
+    }
+
+    @Bean
+    public Binding notificationBinding(Queue notificationQueue, DirectExchange notificationExchange) {
+        return BindingBuilder
+                .bind(notificationQueue)
+                .to(notificationExchange)
+                .with(routingKey);
     }
 
     @Bean
