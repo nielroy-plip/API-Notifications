@@ -20,7 +20,7 @@ public class RabbitMQConfig {
     private String queueName;
 
     @Value("${app.rabbitmq.routingkey}")
-    private Sting routingkey;
+    private String routingkey;
 
     @Bean
     public Queue notificationQueue() {
