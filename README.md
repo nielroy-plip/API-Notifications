@@ -167,3 +167,11 @@ Se necessário, confira se o PATH contém:
 ```text
 C:\Program Files\Docker\Docker\resources\bin
 ```
+
+## Variáveis de ambiente
+Crie um arquivo .env na raiz com:
+RABBITMQ_USERNAME=admin
+RABBITMQ_PASSWORD=admin
+
+A aplicação e o docker-compose usam essa variáveis.
+Se não forem definidas, o ambiente local usa fallback "admin"

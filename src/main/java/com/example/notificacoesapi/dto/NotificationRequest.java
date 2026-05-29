@@ -2,7 +2,7 @@ package com.example.notificacoesapi.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.NotNull;
 
 public record NotificationRequest(
 
@@ -13,12 +13,8 @@ public record NotificationRequest(
     @NotBlank(message = "Mensagem é obrigatória")
     String mensagem,
 
-    @NotBlank(message = "Tipo é obrigatório")
-    @Pattern(
-        regexp = "EMAIL|SMS|PUSH",
-        message = "Tipo deve ser EMAIL, SMS ou PUSH"
-    )
-    String tipo
+    @NotNull(message = "Tipo é obrigatório")
+    NotificationType tipo
 ) {
 
 }
